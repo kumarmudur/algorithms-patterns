@@ -16,4 +16,21 @@ function findAveragesOfSubArrays(k, arr) {
     return results;
 }
 
+// Solution 2
+// time: O(n) | space: O(n)
+function findAveragesOfSubArrays1(k, arr) {
+    const results = [];
+    let windowSum = 0;
+    let windowStart = 0;
+    for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+        windowSum += arr[windowEnd];
+        if (windowEnd >= k - 1) {
+            results.push(windowSum / k);
+            windowSum -= arr[windowStart];
+            windowStart += 1;
+        }
+    }
+    return results;
+}
+
 console.log(findAveragesOfSubArrays1(5, [1, 3, 2, 6, -1, 4, 1, 8, 2]));
