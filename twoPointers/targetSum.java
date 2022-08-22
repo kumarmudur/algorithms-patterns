@@ -1,5 +1,6 @@
 package twoPointers;
 
+// time: O(n) | space: O(1) 
 class PairWithTargetSum {
     public static int[] search(int[] arr, int targetSum) {
         int left = 0, right = arr.length - 1;
