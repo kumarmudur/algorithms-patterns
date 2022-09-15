@@ -70,3 +70,26 @@ class StairCase2 {
         return dp[n];
     }
 }
+
+// Memory-optimization
+// time: O(n) | space: O(1)
+class StairCase3 {
+    public int CountWays(int n) {
+        if (n < 2)
+            return 1;
+        if (n == 2)
+            return 2;
+
+        int n1 = 1;
+        int n2 = 1;
+        int n3 = 2;
+        int temp;
+        for (int i = 3; i <= n; i++) {
+            temp = n1 + n2 + n3;
+            n1 = n2;
+            n2 = n3;
+            n3 = temp;
+        }
+        return n3;
+    }
+}
