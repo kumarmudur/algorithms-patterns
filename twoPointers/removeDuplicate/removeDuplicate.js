@@ -15,5 +15,16 @@ function removeDuplicates(arr) {
     return nonDuplicates;
 }
 
+// Solution 2
+// time: O(N) | space: O(1)
+function removeElement(arr, key) {
+    let element = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== key) {
+            arr[element++] = arr[i];
+        }
+    }
+    return element;
+}
 
 removeDuplicates([2, 3, 3, 3, 6, 9, 9]);
