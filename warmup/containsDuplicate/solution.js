@@ -14,3 +14,14 @@ const containsDuplicate = (nums) => {
     }
     return false;
 }
+
+// Solution 2: Hash Set
+// time: O(N) | space: O(N)
+const containsDuplicate1 = (nums) => {
+    const set = new Set();
+    for (let num of nums) {
+        if (set.has(num)) return true;
+        set.add(num);
+    }
+    return false;
+}
