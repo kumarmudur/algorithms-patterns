@@ -25,3 +25,13 @@ const containsDuplicate1 = (nums) => {
     }
     return false;
 }
+
+// Solution 3: Sorting
+// time: O(N * log(N)) | space: O(1)
+const containsDuplicate2 = (nums) => {
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < num.length - 1; i++) {
+        if (nums[i] === nums[i + 1]) return true;
+    }
+    return false;
+}
