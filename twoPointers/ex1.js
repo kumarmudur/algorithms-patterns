@@ -16,3 +16,21 @@ const searchTarget = (arr, targetSum) => {
     }
     return [-1, -1];
 }
+
+// Solution 2
+// time: O(N) | space: O(1)
+const searchTarget1 = (arr, targetSum) => {
+    let left = 0, right = arr.length - 1;
+    while (left < right) {
+        const currentSum = arr[left] + arr[right];
+        if (currentSum === targetSum) {
+            return [left, right];
+        }
+        if (targetSum > currentSum) {
+            left += 1;
+        } else {
+            right -= 1;
+        }
+    }
+    return [-1, -1];
+}
