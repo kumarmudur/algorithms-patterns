@@ -24,13 +24,27 @@ const searchTarget1 = (arr, targetSum) => {
     while (left < right) {
         const currentSum = arr[left] + arr[right];
         if (currentSum === targetSum) {
-            return [left, right];
+            return [left,   right];
         }
         if (targetSum > currentSum) {
             left += 1;
         } else {
             right -= 1;
         }
+    }
+    return [-1, -1];
+}
+
+// Solution 3
+// time: O(N) | space: O(1)
+const searchTarget2 = (arr, targetSum) => {
+    const nums = {};
+    for (let i = 0; i < arr.length; i++) {
+        const num = nums[i];
+        if (targetSum - num in nums) {
+            return [nums[targetSum - num], i];
+        }
+        nums[num] = i;
     }
     return [-1, -1];
 }
