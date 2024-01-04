@@ -14,3 +14,17 @@ const findAverages = (arr, k) => {
     return result;
 }
 
+// time: O(N) | space: O(N)
+const findAverages1 = (arr, k) => {
+    const result = [];
+    let windowSum = 0, windowStart = 0;
+    for (let i = 0; i < arr.length; i++) {
+        windowSum += arr[i];
+        if (i >= k - 1) {
+            result.push(windowSum / k);
+            windowSum -= arr[windowStart];
+            windowStart += 1;
+        }
+    }
+    return result;
+}
